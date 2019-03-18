@@ -253,7 +253,7 @@ app.get('/player_info/post', function(req, res) {
   var query1= 'select * from football_players;';
   var player_choice =req.query.player_choice;
   var choices="select * from football_players where id= '" + player_choice + "';";
-  var games='select players from football_games';
+  var games='select players from football_games where '+player_choice+'=any(players);';
   db.task('get-everything', task => {
         return task.batch([
             task.any(query1),

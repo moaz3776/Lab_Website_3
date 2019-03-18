@@ -69,21 +69,65 @@
 						</tr>
 						<tr>
 							<th>Games Played</th>
-							<td>
-							<%-major%>
+							<td><% 
+								var total=0;
+								if(player_choices){
+									total_games.forEach(function(item){
+										total++;
+									});
+									
+								}
+							%>
+							<%-total%>
 								</td>
 						</tr>
 						<tr>
-							<td>Passing Yards: </td>
-							<td>Avg. Passing Yards: </td>
+							<td>Passing Yards:<% 
+								var py='';
+								if(player_choices){
+									py=player_choices.passing_yards;
+								}
+							%>
+							<%-py%> </td>
+							<td>Avg. Passing Yards:<% 
+								var apy=0;
+								if(player_choices){
+									apy=Math.round(py/total);
+								};
+							%>
+							<%-apy%> </td>
 						</tr>
 						<tr>
-							<td>Rushing Yards: </td>
-							<td>Avg. Rushing Yards: </td>
+							<td>Rushing Yards:<% 
+								var ry='';
+								if(player_choices){
+									ry=player_choices.rushing_yards;
+								}
+							%>
+							<%-ry%>  </td>
+							<td>Avg. Rushing Yards:<% 
+								var ary=0;
+								if(player_choices){
+									ary=Math.round(ry/total);
+								};
+							%>
+							<%-ary%> </td>
 						</tr>
 						<tr>
-							<td>Receiving Yards: </td>
-							<td>Avg. Receiving Yards: </td>
+							<td>Receiving Yards:<% 
+								var rey='';
+								if(player_choices){
+									rey=player_choices.receiving_yards;
+								}
+							%>
+							<%-rey%>  </td>
+							<td>Avg. Receiving Yards: <% 
+								var arey=0;
+								if(player_choices){
+									arey=Math.round(rey/total);
+								};
+							%>
+							<%-arey%> </td>
 						</tr>
 					</table>
 				</div>
